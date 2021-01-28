@@ -1,22 +1,5 @@
-:root {
-	--primary-font: 'Lato', sans-serif;
-	--secondary-font: 'Montserrat', sans-serif;
-}
-
-*,
-*::after,
-*::before {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 body {
-	margin: 0;
-	box-sizing: inherit;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: var(--secondary-font);
+	font-family: 'Montserrat', sans-serif;
 }
 
 html {
