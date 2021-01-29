@@ -1,0 +1,108 @@
+import { AnimatePresence } from 'framer-motion';
+import { sliderIndex } from '../../data';
+import SliderDot from '../HomeComponent/ProductSlider.js/SliderDot';
+import Button from '../UI/Button/Button';
+import {
+	Container,
+	ImageConatiner,
+	TextContainer,
+	ButtonContainer,
+	SliderControls,
+} from './style/ProductCardStyle';
+
+const ProductCard = ({
+	title,
+	description,
+	price,
+	image,
+	reversed,
+	slider,
+	currentSliderIndex,
+	changeIndex,
+}) => {
+	const slideAnimation = {
+		initial: {
+			x: -100,
+			opacity: 0,
+		},
+		animate: {
+			x: 100,
+			opacity: 1,
+			transition: {
+				duration: 0.6,
+
+				ease: [0.6, 0.01, -0.05, 0.9],
+			},
+		},
+		exit: {
+			y: -100,
+			opacity: 1,
+			transition: {
+				duration: 0.6,
+				ease: [0.6, 0.01, -0.05, 0.9],
+			},
+		},
+	};
+	const imageAnimation = {
+		initial: {
+			opacity: 0,
+		},
+		animate: {
+			opacity: 1,
+			transition: {
+				duration: 0.8,
+				// ease: [0.45, 0, 0.55, 1],
+			},
+		},
+		exit: {
+			opacity: 0,
+			transition: {
+				duration: 0.4,
+				ease: [0.45, 0, 0.55, 1],
+			},
+		},
+	};
+	return (
+		<AnimatePresence initial={false} exitBeforeEnter={false}>
+			<Container reversed>
+				<ImageConatiner
+					initial="initial"
+					animate="animate"
+					exit="exit"
+					variants={imageAnimation}
+					key={image}
+				>
+					<img src={image} alt={title} />
+				</ImageConatiner>
+				<TextContainer
+					initial="initial"
+					animate="animate"
+					exit="exit"
+					variants={slideAnimation}
+					key={title}
+				>
+					<h3>{title}</h3>
+					<p>{description}</p>
+					<h6>$ {price}</h6>
+					<ButtonContainer>
+						<Button greenButton>add to cart</Button>
+						<Button outline>add to wishlist</Button>
+					</ButtonContainer>
+					{slider && (
+						<SliderControls>
+							{sliderIndex.map((dot) => (
+								<SliderDot
+									index={dot.index}
+									currentIndex={currentSliderIndex}
+									setIndex={changeIndex}
+								/>
+							))}
+						</SliderControls>
+					)}
+				</TextContainer>
+			</Container>
+		</AnimatePresence>
+	);
+};
+
+export default ProductCard;
