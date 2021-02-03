@@ -4,15 +4,21 @@ import { useThemeContext } from './theme/themeContext';
 import { darkTheme, lightTheme } from './theme/theme';
 import { GlobalStyle } from './styles/globalStyles';
 import Home from './components/HomeComponent/HomeComponent';
+import { Route, Switch } from 'react-router-dom';
+import Categories from './components/CategoriesComponent/Categories';
+import ProductList from './components/ProductList/ProductList';
 
 function App() {
-	const { currentTheme, toggleTheme } = useThemeContext();
+	const { currentTheme } = useThemeContext();
 
 	return (
 		<ThemeProvider theme={currentTheme === 'light' ? lightTheme : darkTheme}>
 			<GlobalStyle />
-			<Home />
-			<button onClick={toggleTheme}>Change Theme</button>
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/categories" component={Categories} />
+				<Route path="/categories/:id" component={ProductList} />
+			</Switch>
 		</ThemeProvider>
 	);
 }

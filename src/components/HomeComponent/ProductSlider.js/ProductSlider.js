@@ -5,6 +5,25 @@ import ProductCard from '../../ProductCard/ProductCard';
 const ProductSlider = () => {
 	const [sliderIndex, setSliderIndex] = React.useState(0);
 
+	React.useLayoutEffect(() => {
+		const index = sliderIndex;
+		const nextIndex = index === 4 ? 0 : index + 1;
+
+		// console.log(index, `Next index is ${nextIndex}`);
+
+		let timer1 = setTimeout(() => {
+			onIndexChange(nextIndex);
+		}, 5000);
+
+		return () => {
+			clearTimeout(timer1);
+		};
+	}, [sliderIndex]);
+
+	const onIndexChange = (index) => {
+		return setSliderIndex(index);
+	};
+
 	return (
 		<>
 			<ProductCard
@@ -15,9 +34,8 @@ const ProductSlider = () => {
 				reversed
 				slider
 				currentSliderIndex={sliderIndex}
-				changeIndex={setSliderIndex}
+				changeIndex={onIndexChange}
 			/>
-			<button onClick={() => setSliderIndex(sliderIndex + 1)}>chaneg index</button>
 		</>
 	);
 };

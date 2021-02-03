@@ -27,7 +27,7 @@ export const ImageConatiner = styled(motion.div)`
 	}
 `;
 
-export const TextContainer = styled(motion.div)`
+export const TextContainer = styled.div`
 	width: 50%;
 	display: flex;
 	flex-direction: column;
@@ -71,8 +71,9 @@ export const ButtonContainer = styled.div`
 export const SliderControls = styled.div`
 	display: flex;
 	align-items: center;
+	transform: translateX(25%);
 	/* align-self: center; */
-	place-self: center;
+	/* place-self: center; */
 
 	span {
 		margin: 0 5px;

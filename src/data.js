@@ -47,3 +47,5 @@ export const ProductData = [
 ];
 
 export const sliderIndex = [{ index: 0 }, { index: 1 }, { index: 2 }, { index: 3 }, { index: 4 }];
+
+export const CategoriesData = ['electronics', 'jewelery', 'men clothing', 'women clothing'];

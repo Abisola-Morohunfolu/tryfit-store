@@ -9,6 +9,7 @@ import {
 	ButtonContainer,
 	SliderControls,
 } from './style/ProductCardStyle';
+import { motion } from 'framer-motion';
 
 const ProductCard = ({
 	title,
@@ -22,11 +23,11 @@ const ProductCard = ({
 }) => {
 	const slideAnimation = {
 		initial: {
-			x: -100,
+			y: 100,
 			opacity: 0,
 		},
 		animate: {
-			x: 100,
+			y: 0,
 			opacity: 1,
 			transition: {
 				duration: 0.6,
@@ -74,16 +75,18 @@ const ProductCard = ({
 				>
 					<img src={image} alt={title} />
 				</ImageConatiner>
-				<TextContainer
-					initial="initial"
-					animate="animate"
-					exit="exit"
-					variants={slideAnimation}
-					key={title}
-				>
-					<h3>{title}</h3>
-					<p>{description}</p>
-					<h6>$ {price}</h6>
+				<TextContainer>
+					<motion.div
+						initial="initial"
+						animate="animate"
+						exit="exit"
+						variants={slideAnimation}
+						key={title}
+					>
+						<h3>{title}</h3>
+						<p>{description}</p>
+						<h6>$ {price}</h6>
+					</motion.div>
 					<ButtonContainer>
 						<Button greenButton>add to cart</Button>
 						<Button outline>add to wishlist</Button>
@@ -95,6 +98,7 @@ const ProductCard = ({
 									index={dot.index}
 									currentIndex={currentSliderIndex}
 									setIndex={changeIndex}
+									key={dot.index}
 								/>
 							))}
 						</SliderControls>
