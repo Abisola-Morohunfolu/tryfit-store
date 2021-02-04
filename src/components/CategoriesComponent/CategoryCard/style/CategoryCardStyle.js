@@ -6,6 +6,14 @@ export const SectionCategory = styled.div`
 	position: relative;
 	margin-right: 3rem;
 	margin-bottom: 5rem;
+	border-radius: 5px;
+	overflow: hidden;
+	transform: translateY(0);
+	transition: all 0.4s ease-in-out;
+
+	&:hover {
+		transform: translateY(-5px);
+	}
 
 	img {
 		width: 100%;

@@ -11,7 +11,7 @@ const CategoriesSection = () => {
 			</HeaderSection>
 			<CategoryContainer>
 				<CategoryCard category="men clothing" image="Test" />
-				<CategoryCard category="jewelry" image="Test" />
+				<CategoryCard category="jewelery" image="Test" />
 			</CategoryContainer>
 		</SectionStyle>
 	);

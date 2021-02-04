@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeContextProvider } from './theme/themeContext';
 import { BrowserRouter } from 'react-router-dom';
+import GlobalContextProvider from './context/context';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<ThemeContextProvider>
-				<App />
-			</ThemeContextProvider>
+			<GlobalContextProvider>
+				<ThemeContextProvider>
+					<App />
+				</ThemeContextProvider>
+			</GlobalContextProvider>
 		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById('root')

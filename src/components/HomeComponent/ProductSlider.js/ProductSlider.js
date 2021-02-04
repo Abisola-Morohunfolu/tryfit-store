@@ -5,7 +5,7 @@ import ProductCard from '../../ProductCard/ProductCard';
 const ProductSlider = () => {
 	const [sliderIndex, setSliderIndex] = React.useState(0);
 
-	React.useLayoutEffect(() => {
+	React.useEffect(() => {
 		const index = sliderIndex;
 		const nextIndex = index === 4 ? 0 : index + 1;
 
