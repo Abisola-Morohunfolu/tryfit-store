@@ -10,17 +10,22 @@ import {
 	SliderControls,
 } from './style/ProductCardStyle';
 import { motion } from 'framer-motion';
+import { useGlobalDispatchContext, useGlobalStateContext } from '../../context/context';
+import { addToCart, addToWishlist } from '../../context/actions/actions';
 
 const ProductCard = ({
 	title,
 	description,
 	price,
 	image,
+	id,
 	reversed,
 	slider,
 	currentSliderIndex,
 	changeIndex,
 }) => {
+	const dispatch = useGlobalDispatchContext();
+	const { wishlist } = useGlobalStateContext();
 	const slideAnimation = {
 		initial: {
 			y: 100,
@@ -63,6 +68,14 @@ const ProductCard = ({
 			},
 		},
 	};
+
+	const onBtnWishlistClick = (id) => {
+		// check for duplicity
+		const duplicate = wishlist.filter((item) => item.id === id);
+		if (duplicate.length === 1) return alert('Already in wishlist');
+
+		dispatch(addToWishlist(id));
+	};
 	return (
 		<AnimatePresence initial={false} exitBeforeEnter={false}>
 			<Container reversed>
@@ -88,8 +101,12 @@ const ProductCard = ({
 						<h6>$ {price}</h6>
 					</motion.div>
 					<ButtonContainer>
-						<Button greenButton>add to cart</Button>
-						<Button outline>add to wishlist</Button>
+						<Button greenButton clicked={() => dispatch(addToCart(id))}>
+							add to cart
+						</Button>
+						<Button outline clicked={() => onBtnWishlistClick(id)}>
+							add to wishlist
+						</Button>
 					</ButtonContainer>
 					{slider && (
 						<SliderControls>

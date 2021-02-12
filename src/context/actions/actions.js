@@ -8,7 +8,6 @@ export const setProducts = (products) => {
 };
 
 export const fetchedData = (products) => {
-	console.log('dispatched');
 	return {
 		type: actionTypes.FECTHED_DATA,
 	};
@@ -22,4 +21,18 @@ export const fetchProducts = (dispatch) => {
 			dispatch(setProducts(products));
 			// console.log(products);
 		});
+};
+
+export const addToCart = (id) => {
+	return {
+		type: actionTypes.ADD_TO_CART,
+		itemID: id,
+	};
+};
+
+export const addToWishlist = (id) => {
+	return {
+		type: actionTypes.ADD_TO_WISHLIST,
+		itemID: id,
+	};
 };

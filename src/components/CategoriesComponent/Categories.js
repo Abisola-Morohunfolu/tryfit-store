@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { CategoriesData } from '../../data';
 import CategoryCard from './CategoryCard/CategoryCard';
-import Navigation from '../HomeComponent/Navigation/Navigation';
 import { Category, Container } from './style/CategoriesStyle';
 import { useGlobalStateContext } from '../../context/context';
 import { Redirect } from 'react-router-dom';
@@ -12,7 +11,6 @@ const Categories = () => {
 	if (products.length === 0) return <Redirect to="/" />;
 	return (
 		<>
-			<Navigation />
 			<Container>
 				<h2>Categories</h2>
 				<Category>

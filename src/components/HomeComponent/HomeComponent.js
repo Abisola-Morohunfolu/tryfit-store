@@ -3,7 +3,6 @@ import { useGlobalDispatchContext, useGlobalStateContext } from '../../context/c
 import { fetchProducts } from '../../context/actions/actions';
 import CategoriesSection from './CategoriesSection/CategoriesSection';
 import Header from './Header/Header';
-import Navigation from './Navigation/Navigation';
 import ProductSlider from './ProductSlider.js/ProductSlider';
 import LoadingScreen from '../UI/LoadingScreen/LoadingScreen';
 
@@ -31,7 +30,6 @@ const Home = () => {
 
 	return (
 		<>
-			<Navigation />
 			<Header />
 			<ProductSlider />
 			<CategoriesSection />

@@ -7,6 +7,8 @@ export const StyledNav = styled.nav`
 
 export const LogoContainer = styled.div`
 	display: inline-block;
+	margin-right: auto;
+	cursor: pointer;
 
 	svg:last-child path {
 		fill: ${(props) => props.theme.text};

@@ -35,6 +35,7 @@ const ProductSlider = () => {
 				slider
 				currentSliderIndex={sliderIndex}
 				changeIndex={onIndexChange}
+				id={ProductData[sliderIndex].id}
 			/>
 		</>
 	);
