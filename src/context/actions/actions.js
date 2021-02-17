@@ -1,3 +1,4 @@
+import { updateFetchedProducts } from '../../utils';
 import * as actionTypes from './actionTypes';
 
 export const setProducts = (products) => {
@@ -18,7 +19,9 @@ export const fetchProducts = (dispatch) => {
 		.then((res) => res.json())
 		.then((products) => {
 			dispatch(fetchedData());
-			dispatch(setProducts(products));
+			const updatedProducts = updateFetchedProducts(products);
+			// console.log(updatedProducts);
+			dispatch(setProducts(updatedProducts));
 			// console.log(products);
 		});
 };
@@ -30,9 +33,37 @@ export const addToCart = (id) => {
 	};
 };
 
+export const removeFromCart = (id) => {
+	return {
+		type: actionTypes.REMOVE_FROM_CART,
+		itemID: id,
+	};
+};
+
 export const addToWishlist = (id) => {
 	return {
 		type: actionTypes.ADD_TO_WISHLIST,
+		itemID: id,
+	};
+};
+
+export const removeFromWishlist = (id) => {
+	return {
+		type: actionTypes.REMOVE_FROM_WISHLIST,
+		itemID: id,
+	};
+};
+
+export const incrementCart = (id) => {
+	return {
+		type: actionTypes.INCREMENT_CART,
+		itemID: id,
+	};
+};
+
+export const decrementCart = (id) => {
+	return {
+		type: actionTypes.DECREMENT_CART,
 		itemID: id,
 	};
 };

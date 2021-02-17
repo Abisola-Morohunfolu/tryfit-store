@@ -8,7 +8,7 @@ import LoadingScreen from '../UI/LoadingScreen/LoadingScreen';
 
 const Home = () => {
 	const dispatch = useGlobalDispatchContext();
-	const { loading } = useGlobalStateContext();
+	const { loading, products } = useGlobalStateContext();
 
 	React.useEffect(() => {
 		// fetch('https://fakestoreapi.com/products/')
@@ -31,7 +31,7 @@ const Home = () => {
 	return (
 		<>
 			<Header />
-			<ProductSlider />
+			<ProductSlider loading={loading} products={products} />
 			<CategoriesSection />
 		</>
 	);

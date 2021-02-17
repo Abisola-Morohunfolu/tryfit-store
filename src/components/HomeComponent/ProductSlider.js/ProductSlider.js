@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { ProductData } from '../../../data';
+// import { useGlobalStateContext } from '../../../context/context';
+// import { ProductData } from '../../../data';
 import ProductCard from '../../ProductCard/ProductCard';
 
-const ProductSlider = () => {
+const ProductSlider = ({ products, loading }) => {
 	const [sliderIndex, setSliderIndex] = React.useState(0);
+	// const { products, loading } = useGlobalStateContext();
+	// console.log(products[sliderIndex].title);
 
 	React.useEffect(() => {
 		const index = sliderIndex;
@@ -26,17 +29,22 @@ const ProductSlider = () => {
 
 	return (
 		<>
-			<ProductCard
-				title={ProductData[sliderIndex].title}
-				description={ProductData[sliderIndex].description}
-				image={ProductData[sliderIndex].image}
-				price={ProductData[sliderIndex].price}
-				reversed
-				slider
-				currentSliderIndex={sliderIndex}
-				changeIndex={onIndexChange}
-				id={ProductData[sliderIndex].id}
-			/>
+			{products.length === 0 ? null : (
+				<ProductCard
+					title={products[sliderIndex].title}
+					description={products[sliderIndex].description}
+					image={products[sliderIndex].image}
+					price={products[sliderIndex].price}
+					reversed
+					slider
+					currentSliderIndex={sliderIndex}
+					changeIndex={onIndexChange}
+					id={products[sliderIndex].id}
+					inCart={products[sliderIndex].inCart}
+					inWishlist={products[sliderIndex].inWishlist}
+					count={products[sliderIndex].count}
+				/>
+			)}
 		</>
 	);
 };
