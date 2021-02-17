@@ -42,7 +42,6 @@ const ProductSlider = ({ products, loading }) => {
 					id={products[sliderIndex].id}
 					inCart={products[sliderIndex].inCart}
 					inWishlist={products[sliderIndex].inWishlist}
-					count={products[sliderIndex].count}
 				/>
 			)}
 		</>

@@ -25,10 +25,11 @@ export const reducer = (state, action) => {
 			const indexOfItem = newState.findIndex((product) => product.id === action.itemID);
 			const selectedProduct = newState[indexOfItem];
 			selectedProduct.inCart = true;
-			selectedProduct.count = 1;
 
 			//
 			const newObject = findItem(state.products, action.itemID);
+			newObject[0].count = 1;
+			newObject[0].inCart = true;
 
 			return {
 				...state,
@@ -43,7 +44,7 @@ export const reducer = (state, action) => {
 			const selectedProduct = newState[indexOfItem];
 			selectedProduct.inCart = false;
 
-			const newCart = state.wishlist.filter((product) => product.id !== action.itemID);
+			const newCart = state.cart.filter((product) => product.id !== action.itemID);
 
 			return {
 				...state,
@@ -83,31 +84,40 @@ export const reducer = (state, action) => {
 		}
 		case actionTypes.INCREMENT_CART: {
 			const newCart = [...state.cart];
-			const indexOfItem = newCart.findIndex((cartItem) => cartItem.id === action.itemID);
-			const selectedItem = newCart[indexOfItem];
-			selectedItem.count = selectedItem.count + 1;
+			const selectedItem = newCart.find((cartItem) => cartItem.id === action.itemID);
+			const index = newCart.indexOf(selectedItem);
+			const updatedCart = [
+				...newCart.slice(0, index),
+				{ ...newCart[index], count: newCart[index].count + 1 },
+				...newCart.slice(index + 1),
+			];
 
 			return {
 				...state,
-				cart: [...newCart],
+				cart: [...updatedCart],
 			};
 		}
 		case actionTypes.DECREMENT_CART: {
+			console.log('fired', state.count);
 			let newCart = [...state.cart];
-			const indexOfItem = newCart.findIndex((cartItem) => cartItem.id === action.itemID);
-			const selectedItem = newCart[indexOfItem];
+			const index = newCart.findIndex((cartItem) => cartItem.id === action.itemID);
+			const selectedItem = newCart[index];
+			let updatedCart;
 
 			if (selectedItem.count === 1) {
-				newCart = state.wishlist.filter((product) => product.id !== action.itemID);
-				selectedItem.count = selectedItem.count - 1;
-				selectedItem.inCart = false;
+				newCart = newCart.filter((product) => product.id !== action.itemID);
+				updatedCart = [...newCart];
 			} else {
-				selectedItem.count = selectedItem.count - 1;
+				updatedCart = [
+					...newCart.slice(0, index),
+					{ ...newCart[index], count: newCart[index].count - 1 },
+					...newCart.slice(index + 1),
+				];
 			}
 
 			return {
 				...state,
-				cart: [...newCart],
+				cart: [...updatedCart],
 			};
 		}
 		default:

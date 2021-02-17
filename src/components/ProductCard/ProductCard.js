@@ -11,7 +11,12 @@ import {
 } from './style/ProductCardStyle';
 import { motion } from 'framer-motion';
 import { useGlobalDispatchContext } from '../../context/context';
-import { addToCart, addToWishlist, removeFromWishlist } from '../../context/actions/actions';
+import {
+	addToCart,
+	addToWishlist,
+	removeFromCart,
+	removeFromWishlist,
+} from '../../context/actions/actions';
 
 const ProductCard = ({
 	title,
@@ -96,9 +101,15 @@ const ProductCard = ({
 						<h6>$ {price}</h6>
 					</motion.div>
 					<ButtonContainer>
-						<Button greenButton clicked={() => dispatch(addToCart(id))}>
-							add to cart
-						</Button>
+						{inCart ? (
+							<Button greenButton clicked={() => dispatch(removeFromCart(id))}>
+								remove from cart
+							</Button>
+						) : (
+							<Button greenButton clicked={() => dispatch(addToCart(id))}>
+								add to cart
+							</Button>
+						)}
 						{inWishlist ? (
 							<Button outline clicked={() => dispatch(removeFromWishlist(id))}>
 								remove from wishlist
