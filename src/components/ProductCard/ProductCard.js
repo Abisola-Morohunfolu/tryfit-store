@@ -29,7 +29,7 @@ const ProductCard = ({
 	currentSliderIndex,
 	changeIndex,
 	inCart,
-	inWishlist,
+	inWishList,
 }) => {
 	const dispatch = useGlobalDispatchContext();
 
@@ -110,7 +110,7 @@ const ProductCard = ({
 								add to cart
 							</Button>
 						)}
-						{inWishlist ? (
+						{inWishList ? (
 							<Button outline clicked={() => dispatch(removeFromWishlist(id))}>
 								remove from wishlist
 							</Button>

@@ -2,7 +2,7 @@ import { decrementCart, incrementCart, removeFromCart } from '../../../context/a
 import { useGlobalDispatchContext } from '../../../context/context';
 import { CartImage, CartItemContainer, Counter, Price } from './style/CartItemStyle';
 
-const CartItem = ({ image, id, title, count, price }) => {
+const CartItem = ({ image, id, title, count, price, total }) => {
 	const dispatch = useGlobalDispatchContext();
 
 	return (
@@ -17,7 +17,7 @@ const CartItem = ({ image, id, title, count, price }) => {
 				<button onClick={() => dispatch(incrementCart(id))}>+</button>
 			</Counter>
 			<Price>
-				<p>$ {(price * count).toFixed(2)}</p>
+				<p>$ {total}</p>
 				<button onClick={() => dispatch(removeFromCart(id))}>Remove from cart</button>
 			</Price>
 		</CartItemContainer>

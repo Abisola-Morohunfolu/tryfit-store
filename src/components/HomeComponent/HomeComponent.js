@@ -11,14 +11,17 @@ const Home = () => {
 	const { loading, products } = useGlobalStateContext();
 
 	React.useEffect(() => {
-		// fetch('https://fakestoreapi.com/products/')
-		// 	.then((res) => res.json())
-		// 	.then((products) => {
-		// 		dispatch(setProducts(products));
-		// 		console.log(products);
-		// 	});
-		fetchProducts(dispatch);
-	}, [dispatch]);
+		let canFetch = products.length > 0 ? false : true;
+
+		// prevent refecth on component mounting
+		if (canFetch) {
+			fetchProducts(dispatch);
+		}
+
+		return () => {
+			canFetch = false;
+		};
+	}, [dispatch, products]);
 
 	React.useEffect(() => {
 		console.log(loading);

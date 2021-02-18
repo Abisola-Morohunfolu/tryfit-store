@@ -41,7 +41,7 @@ const ProductSlider = ({ products, loading }) => {
 					changeIndex={onIndexChange}
 					id={products[sliderIndex].id}
 					inCart={products[sliderIndex].inCart}
-					inWishlist={products[sliderIndex].inWishlist}
+					inWishList={products[sliderIndex].inWishList}
 				/>
 			)}
 		</>

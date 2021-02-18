@@ -43,3 +43,34 @@ export const EmptyCartContainer = styled.div`
 		transform: translateY(-3px) scale(1.03);
 	}
 `;
+
+export const CartContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+export const CheckoutBox = styled.div`
+	align-self: flex-end;
+
+	h6 {
+		font-size: 2rem;
+	}
+
+	button {
+		width: 100%;
+	}
+`;
+
+export const TotalText = styled.div`
+	display: flex;
+	margin-bottom: 3rem;
+
+	div {
+		margin-right: 2rem;
+	}
+
+	p {
+		color: ${(props) => props.theme.green};
+		font-size: 1.4rem;
+	}
+`;

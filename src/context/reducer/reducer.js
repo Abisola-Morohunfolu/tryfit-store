@@ -1,4 +1,4 @@
-import { findItem } from '../../utils';
+import { findItem, totalCost } from '../../utils';
 import * as actionTypes from '../actions/actionTypes';
 
 export const intialState = {
@@ -6,6 +6,7 @@ export const intialState = {
 	cart: [],
 	wishlist: [],
 	loading: true,
+	total: 0,
 };
 
 export const reducer = (state, action) => {
@@ -30,11 +31,17 @@ export const reducer = (state, action) => {
 			const newObject = findItem(state.products, action.itemID);
 			newObject[0].count = 1;
 			newObject[0].inCart = true;
+			newObject[0].total = newObject[0].price;
+
+			const updatedCart = [...state.cart, ...newObject];
+
+			const totalPriceInCart = +totalCost(updatedCart).toFixed(2);
 
 			return {
 				...state,
 				products: [...newState],
-				cart: [...state.cart, ...newObject],
+				cart: [...updatedCart],
+				total: totalPriceInCart,
 			};
 		}
 		case actionTypes.REMOVE_FROM_CART: {
@@ -46,10 +53,13 @@ export const reducer = (state, action) => {
 
 			const newCart = state.cart.filter((product) => product.id !== action.itemID);
 
+			const totalPriceInCart = +totalCost(newCart).toFixed(2);
+
 			return {
 				...state,
 				products: [...newState],
 				cart: [...newCart],
+				total: totalPriceInCart,
 			};
 		}
 		case actionTypes.ADD_TO_WISHLIST: {
@@ -57,7 +67,7 @@ export const reducer = (state, action) => {
 			const newState = [...state.products];
 			const indexOfItem = newState.findIndex((product) => product.id === action.itemID);
 			const selectedProduct = newState[indexOfItem];
-			selectedProduct.inWishlist = true;
+			selectedProduct.inWishList = true;
 
 			const newObject = findItem(state.products, action.itemID);
 
@@ -88,17 +98,23 @@ export const reducer = (state, action) => {
 			const index = newCart.indexOf(selectedItem);
 			const updatedCart = [
 				...newCart.slice(0, index),
-				{ ...newCart[index], count: newCart[index].count + 1 },
+				{
+					...newCart[index],
+					count: newCart[index].count + 1,
+					total: +(newCart[index].price * (newCart[index].count + 1)).toFixed(2),
+				},
 				...newCart.slice(index + 1),
 			];
+
+			const totalPriceInCart = +totalCost(updatedCart).toFixed(2);
 
 			return {
 				...state,
 				cart: [...updatedCart],
+				total: totalPriceInCart,
 			};
 		}
 		case actionTypes.DECREMENT_CART: {
-			console.log('fired', state.count);
 			let newCart = [...state.cart];
 			const index = newCart.findIndex((cartItem) => cartItem.id === action.itemID);
 			const selectedItem = newCart[index];
@@ -107,17 +123,41 @@ export const reducer = (state, action) => {
 			if (selectedItem.count === 1) {
 				newCart = newCart.filter((product) => product.id !== action.itemID);
 				updatedCart = [...newCart];
-			} else {
-				updatedCart = [
-					...newCart.slice(0, index),
-					{ ...newCart[index], count: newCart[index].count - 1 },
-					...newCart.slice(index + 1),
-				];
+
+				const newProducts = [...state.products];
+				const selectedProductIndex = newProducts.findIndex(
+					(product) => product.id === action.itemID
+				);
+
+				const selectedProduct = newProducts[selectedProductIndex];
+				selectedProduct.inCart = false;
+
+				const totalPriceInCart = +totalCost(updatedCart).toFixed(2);
+
+				return {
+					...state,
+					products: [...newProducts],
+					cart: [...updatedCart],
+					total: totalPriceInCart,
+				};
 			}
+
+			updatedCart = [
+				...newCart.slice(0, index),
+				{
+					...newCart[index],
+					count: newCart[index].count - 1,
+					total: +(newCart[index].price * (newCart[index].count - 1)).toFixed(2),
+				},
+				...newCart.slice(index + 1),
+			];
+
+			const totalPriceInCart = +totalCost(updatedCart).toFixed(2);
 
 			return {
 				...state,
 				cart: [...updatedCart],
+				total: totalPriceInCart,
 			};
 		}
 		default:

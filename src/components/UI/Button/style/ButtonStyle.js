@@ -11,6 +11,7 @@ export const Button = styled.button`
 	text-transform: uppercase;
 	transition: all 0.4s ease-in-out;
 	display: flex;
+	justify-content: center;
 	align-items: center;
 
 	svg {
