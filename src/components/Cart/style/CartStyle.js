@@ -23,6 +23,7 @@ export const EmptyCartContainer = styled.div`
 	h3 {
 		font-size: 2.8rem;
 		margin-bottom: 3rem;
+		color: #aaa;
 	}
 
 	a {

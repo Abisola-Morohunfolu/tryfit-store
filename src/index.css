@@ -5,3 +5,9 @@ body {
 html {
 	font-size: 62.5%;
 }
+
+a {
+	text-decoration: none;
+	font-family: inherit;
+	color: inherit;
+}

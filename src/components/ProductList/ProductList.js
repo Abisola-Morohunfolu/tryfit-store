@@ -1,6 +1,8 @@
 import { Redirect } from 'react-router-dom';
 import { useGlobalStateContext } from '../../context/context';
-import ProductCard from '../ProductCard/ProductCard';
+
+import ProductListCard from './ProductListCard/ProductListCard';
+import { ListContainer, ProductListStyle } from './ProductListStyle';
 
 // const splitAndJoinText = (word) => {
 // 	const splitText = word.split('-')
@@ -23,19 +25,21 @@ const ProductList = ({ match }) => {
 	});
 
 	return (
-		<div>
-			<h3>{category}</h3>
-			{categoryProducts.map((product) => (
-				<ProductCard
-					title={product.title}
-					description={products.description}
-					key={products.id}
-					price={product.price}
-					image={product.image}
-					reversed
-				/>
-			))}
-		</div>
+		<ProductListStyle>
+			<h2>{category}</h2>
+			<ListContainer>
+				{categoryProducts.map((product) => (
+					<ProductListCard
+						title={product.title}
+						key={product.id}
+						productID={product.id}
+						price={product.price}
+						image={product.image}
+						wishlist={product.inWishList}
+					/>
+				))}
+			</ListContainer>
+		</ProductListStyle>
 	);
 };
 

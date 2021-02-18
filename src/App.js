@@ -10,6 +10,8 @@ import ProductList from './components/ProductList/ProductList';
 import Navigation from './components/HomeComponent/Navigation/Navigation';
 import Cart from './components/Cart/Cart';
 import Wishlist from './components/Wishlist/Wishlist';
+import DetailProduct from './components/DetailProduct/DetailProduct';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
 	const { currentTheme } = useThemeContext();
@@ -23,7 +25,9 @@ function App() {
 				<Route exact path="/cart" component={Cart} />
 				<Route exact path="/wishlist" component={Wishlist} />
 				<Route exact path="/categories" component={Categories} />
-				<Route path="/categories/:id" component={ProductList} />
+				<Route exact path="/categories/:id" component={ProductList} />
+				<Route path="/categories/:id/:productID" component={DetailProduct} />
+				<Route component={NotFound} />
 			</Switch>
 		</ThemeProvider>
 	);
