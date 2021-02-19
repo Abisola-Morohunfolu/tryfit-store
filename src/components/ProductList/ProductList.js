@@ -4,11 +4,6 @@ import { useGlobalStateContext } from '../../context/context';
 import ProductListCard from './ProductListCard/ProductListCard';
 import { ListContainer, ProductListStyle } from './ProductListStyle';
 
-// const splitAndJoinText = (word) => {
-// 	const splitText = word.split('-')
-// 	const
-// }
-
 const ProductList = ({ match }) => {
 	const { products } = useGlobalStateContext();
 

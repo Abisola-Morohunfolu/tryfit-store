@@ -35,7 +35,6 @@ const ProductSlider = ({ products, loading }) => {
 					description={products[sliderIndex].description}
 					image={products[sliderIndex].image}
 					price={products[sliderIndex].price}
-					reversed
 					slider
 					currentSliderIndex={sliderIndex}
 					changeIndex={onIndexChange}

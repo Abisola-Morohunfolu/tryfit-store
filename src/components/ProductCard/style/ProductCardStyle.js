@@ -5,12 +5,13 @@ export const Container = styled.section`
 	padding: 2rem 0;
 	display: flex;
 	height: 90vh;
+	flex-direction: row-reverse;
 
-	${(props) =>
+	/* ${(props) =>
 		props.reversed &&
 		css`
 			flex-direction: row-reverse;
-		`}
+		`} */
 `;
 
 export const ImageConatiner = styled(motion.div)`

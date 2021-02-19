@@ -24,7 +24,6 @@ const ProductCard = ({
 	price,
 	image,
 	id,
-	reversed,
 	slider,
 	currentSliderIndex,
 	changeIndex,
@@ -78,7 +77,7 @@ const ProductCard = ({
 
 	return (
 		<AnimatePresence initial={false} exitBeforeEnter={false}>
-			<Container reversed>
+			<Container>
 				<ImageConatiner
 					initial="initial"
 					animate="animate"

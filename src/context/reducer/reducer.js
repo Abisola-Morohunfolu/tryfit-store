@@ -82,7 +82,7 @@ export const reducer = (state, action) => {
 			const newState = [...state.products];
 			const indexOfItem = newState.findIndex((product) => product.id === action.itemID);
 			const selectedProduct = newState[indexOfItem];
-			selectedProduct.inWishlist = false;
+			selectedProduct.inWishList = false;
 
 			const newWishlist = state.wishlist.filter((product) => product.id !== action.itemID);
 
