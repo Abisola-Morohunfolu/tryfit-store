@@ -17,8 +17,9 @@ export const Container = styled.section`
 
 	@media only screen and (max-width: 37.5em) {
 		flex-direction: column;
-		height: 95vh;
-		min-height: 95vh;
+		min-height: 110%;
+		height: 120%;
+		margin-bottom: 10rem;
 	}
 
 	/* ${(props) =>
@@ -130,6 +131,7 @@ export const SliderControls = styled.div`
 
 	@media only screen and (max-width: 37.5em) {
 		align-self: center;
+		margin-bottom: 2rem;
 	}
 	span {
 		margin: 0 5px;

@@ -4,7 +4,7 @@ export const SectionStyle = styled.section`
 	margin-top: 5rem;
 	@media only screen and (max-width: 37.5em) {
 		height: 100%;
-		margin-top: 10rem;
+		transform: translateY(50%);
 	}
 `;
 
