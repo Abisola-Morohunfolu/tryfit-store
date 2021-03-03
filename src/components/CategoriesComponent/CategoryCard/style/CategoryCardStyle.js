@@ -20,6 +20,19 @@ export const SectionCategory = styled.div`
 		object-fit: contain;
 		height: 100%;
 	}
+
+	@media only screen and (max-width: 75em) {
+		height: 50vh;
+	}
+
+	@media only screen and (max-width: 50em) {
+		height: 100%;
+	}
+
+	@media only screen and (max-width: 37.5em) {
+		height: 50vh;
+		width: 90%;
+	}
 `;
 
 export const TextContainer = styled.div`

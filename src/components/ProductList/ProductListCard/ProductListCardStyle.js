@@ -12,6 +12,12 @@ export const ListCard = styled.div`
 	&:hover {
 		transform: translateY(-3px);
 	}
+
+	@media only screen and (max-width: 37.5em) {
+		height: 100%;
+		max-width: 100%;
+		padding: 1.5rem;
+	}
 `;
 
 export const Image = styled.img`

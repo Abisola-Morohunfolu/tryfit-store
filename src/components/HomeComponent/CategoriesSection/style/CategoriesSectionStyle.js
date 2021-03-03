@@ -32,6 +32,9 @@ export const CategoryContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	margin-bottom: 5rem;
+
+	@media only screen and (max-width: 37.5em) {
+		flex-direction: column;
+		align-items: center;
+	}
 `;
-
-

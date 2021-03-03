@@ -4,6 +4,8 @@ export const IconContainer = styled.div`
 	position: relative;
 	margin: 0 1.5rem;
 	cursor: pointer;
+	text-align: center;
+	font-size: 1.4rem;
 
 	svg {
 		width: 4rem;
@@ -12,6 +14,7 @@ export const IconContainer = styled.div`
 		stroke-linecap: round;
 		stroke-linejoin: round;
 		stroke-width: 3px;
+		margin-bottom: 0;
 	}
 
 	svg path {

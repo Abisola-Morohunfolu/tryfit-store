@@ -6,6 +6,16 @@ export const HeaderContainer = styled.header`
 	display: flex;
 	flex-wrap: wrap;
 	align-content: center;
+
+	@media only screen and (max-width: 50em) {
+		height: 80vh;
+	}
+
+	@media only screen and (max-width: 37.5em) {
+		text-align: center;
+		justify-content: center;
+		height: 90vh;
+	}
 `;
 
 export const TextHeading = styled.h1`
@@ -17,6 +27,11 @@ export const TextHeading = styled.h1`
 
 	span {
 		color: ${(props) => props.theme.green};
+	}
+
+	@media only screen and (max-width: 37.5em) {
+		font-size: 8rem;
+		width: 100%;
 	}
 `;
 

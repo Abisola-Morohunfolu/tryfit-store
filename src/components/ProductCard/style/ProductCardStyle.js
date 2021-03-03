@@ -7,6 +7,19 @@ export const Container = styled.section`
 	height: 90vh;
 	flex-direction: row-reverse;
 
+	@media only screen and (max-width: 75em) {
+		height: 75vh;
+	}
+
+	@media only screen and (max-width: 50em) {
+		height: 50vh;
+	}
+
+	@media only screen and (max-width: 37.5em) {
+		flex-direction: column;
+		height: 95vh;
+	}
+
 	/* ${(props) =>
 		props.reversed &&
 		css`
@@ -25,6 +38,20 @@ export const ImageConatiner = styled(motion.div)`
 
 		max-width: 90%;
 		object-fit: cover;
+	}
+
+	@media only screen and (max-width: 75em) {
+		& {
+			height: 75%;
+
+			img {
+				object-fit: contain;
+			}
+		}
+	}
+
+	@media only screen and (max-width: 37.5em) {
+		width: 100%;
 	}
 `;
 
@@ -58,6 +85,21 @@ export const TextContainer = styled.div`
 		color: ${(props) => props.theme.green};
 		margin-bottom: 5rem;
 	}
+
+	@media only screen and (max-width: 62.5em) {
+		h3 {
+			font-size: 3rem;
+		}
+
+		p {
+			/* font-size: 2rem; */
+			line-height: 2.6rem;
+		}
+	}
+
+	@media only screen and (max-width: 37.5em) {
+		width: 100%;
+	}
 `;
 
 export const ButtonContainer = styled.div`
@@ -66,6 +108,15 @@ export const ButtonContainer = styled.div`
 
 	button:first-child {
 		margin-right: 3rem;
+	}
+
+	@media only screen and (max-width: 50em) {
+		flex-direction: column;
+
+		button:first-child {
+			margin-right: 0rem;
+			margin-bottom: 3rem;
+		}
 	}
 `;
 
@@ -76,6 +127,9 @@ export const SliderControls = styled.div`
 	/* align-self: center; */
 	/* place-self: center; */
 
+	@media only screen and (max-width: 37.5em) {
+		align-self: center;
+	}
 	span {
 		margin: 0 5px;
 	}

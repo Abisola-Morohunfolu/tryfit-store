@@ -11,3 +11,27 @@ a {
 	font-family: inherit;
 	color: inherit;
 }
+
+@media only screen and (max-width: 75em) {
+	html {
+		font-size: 56%;
+	}
+}
+
+@media only screen and (max-width: 62.5em) {
+	html {
+		font-size: 52.5%;
+	}
+}
+
+@media only screen and (max-width: 50em) {
+	html {
+		font-size: 50%;
+	}
+}
+
+@media only screen and (max-width: 37.5em) {
+	html {
+		scroll-behavior: smooth;
+	}
+}

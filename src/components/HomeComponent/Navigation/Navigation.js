@@ -19,9 +19,11 @@ const Navigation = () => {
 			</LogoContainer>
 			<NotificationIcon badge={cart.length} clicked={() => history.push('/cart')}>
 				<CartIcon />
+				<p>Cart</p>
 			</NotificationIcon>
 			<NotificationIcon badge={wishlist.length} clicked={() => history.push('/wishlist')}>
 				<WishListIcon />
+				<p>Wishlist</p>
 			</NotificationIcon>
 		</StyledNav>
 	);
