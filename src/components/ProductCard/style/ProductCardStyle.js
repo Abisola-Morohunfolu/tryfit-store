@@ -18,6 +18,7 @@ export const Container = styled.section`
 	@media only screen and (max-width: 37.5em) {
 		flex-direction: column;
 		height: 95vh;
+		min-height: 95vh;
 	}
 
 	/* ${(props) =>

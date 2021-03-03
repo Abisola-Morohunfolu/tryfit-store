@@ -30,7 +30,8 @@ export const TextHeading = styled.h1`
 	}
 
 	@media only screen and (max-width: 37.5em) {
-		font-size: 8rem;
+		font-size: 5rem;
+		line-height: 6rem;
 		width: 100%;
 	}
 `;
@@ -41,4 +42,10 @@ export const HeaderText = styled.p`
 	font-family: 'Lato', sans-serif;
 	margin-bottom: 1.5rem;
 	color: ${(props) => props.theme.green};
+
+	@media only screen and (max-width: 37.5em) {
+		font-size: 2.8rem;
+		margin-bottom: 3rem;
+		margin-top: 3rem;
+	}
 `;

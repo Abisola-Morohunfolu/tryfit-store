@@ -2,6 +2,7 @@ import * as React from 'react';
 // import { useGlobalStateContext } from '../../../context/context';
 // import { ProductData } from '../../../data';
 import ProductCard from '../../ProductCard/ProductCard';
+import { ProductSlider as ProductSliderContainer } from './style/ProductSliderStyle';
 
 const ProductSlider = ({ products, loading }) => {
 	const [sliderIndex, setSliderIndex] = React.useState(0);
@@ -28,7 +29,7 @@ const ProductSlider = ({ products, loading }) => {
 	};
 
 	return (
-		<>
+		<ProductSliderContainer>
 			{products.length === 0 ? null : (
 				<ProductCard
 					title={products[sliderIndex].title}
@@ -43,7 +44,7 @@ const ProductSlider = ({ products, loading }) => {
 					inWishList={products[sliderIndex].inWishList}
 				/>
 			)}
-		</>
+		</ProductSliderContainer>
 	);
 };
 

@@ -13,4 +13,10 @@ export const LogoContainer = styled.div`
 	svg:last-child path {
 		fill: ${(props) => props.theme.text};
 	}
+
+	@media only screen and (max-width: 37.5em) {
+		svg {
+			width: 5rem;
+		}
+	}
 `;
