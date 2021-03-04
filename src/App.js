@@ -12,6 +12,7 @@ import Cart from './components/Cart/Cart';
 import Wishlist from './components/Wishlist/Wishlist';
 import DetailProduct from './components/DetailProduct/DetailProduct';
 import NotFound from './components/NotFound/NotFound';
+import ScrollToTop from './components/Utility/ScrollToTop';
 
 function App() {
 	const { currentTheme } = useThemeContext();
@@ -20,6 +21,7 @@ function App() {
 		<ThemeProvider theme={currentTheme === 'light' ? lightTheme : darkTheme}>
 			<GlobalStyle />
 			<Navigation />
+			<ScrollToTop />
 			<Switch>
 				<Route exact path="/" component={Home} />
 				<Route exact path="/cart" component={Cart} />
