@@ -7,6 +7,30 @@ export const HeaderContainer = styled.header`
 	flex-wrap: wrap;
 	align-content: center;
 
+	a {
+		text-decoration: none;
+		font-family: 'Lato' sans-serif;
+		font-size: 2.4rem;
+		font-weight: 400;
+		background-color: ${(props) => props.theme.green};
+		color: ${(props) => props.theme.background};
+		text-transform: uppercase;
+		padding: 1.6rem 2.4rem;
+		border-radius: 2px;
+		transition: all 0.3s ease-in-out;
+		outline: none;
+		display: flex;
+		align-items: center;
+	}
+
+	a svg {
+		transform: translateX(8px);
+	}
+
+	a:hover {
+		transform: translateX(10px);
+	}
+
 	@media only screen and (max-width: 50em) {
 		height: 80vh;
 	}

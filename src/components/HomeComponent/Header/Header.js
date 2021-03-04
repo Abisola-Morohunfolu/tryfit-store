@@ -1,6 +1,7 @@
 import Button from '../../UI/Button/Button';
 import { HeaderContainer, TextHeading, HeaderText } from './styles/HeaderStyle';
 import { ReactComponent as RightArrow } from '../../../assets/right-arrow.svg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 	return (
@@ -9,10 +10,10 @@ const Header = () => {
 				Explore the very best <span>deals</span>
 			</TextHeading>
 			<HeaderText>Quality Products, Amazing Offers.</HeaderText>
-			<Button greenButton cta>
+			<Link to="/categories">
 				Shop now
 				<RightArrow />
-			</Button>
+			</Link>
 		</HeaderContainer>
 	);
 };
