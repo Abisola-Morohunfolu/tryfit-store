@@ -1,4 +1,3 @@
-import Button from '../../UI/Button/Button';
 import { HeaderContainer, TextHeading, HeaderText } from './styles/HeaderStyle';
 import { ReactComponent as RightArrow } from '../../../assets/right-arrow.svg';
 import { Link } from 'react-router-dom';
