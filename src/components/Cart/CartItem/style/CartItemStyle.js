@@ -12,6 +12,12 @@ export const CartItemContainer = styled.div`
 		text-align: left;
 		margin-right: auto;
 	}
+
+	@media only screen and (max-width: 37.5em) {
+		h4 {
+			font-size: 1.6rem;
+		}
+	}
 `;
 
 export const CartImage = styled.img`
@@ -61,5 +67,12 @@ export const Price = styled.div`
 		font-family: inherit;
 		cursor: pointer;
 		text-transform: capitalize;
+	}
+
+	@media only screen and (max-width: 37.5em) {
+		button {
+			text-align: left;
+			margin-top: 1rem;
+		}
 	}
 `;

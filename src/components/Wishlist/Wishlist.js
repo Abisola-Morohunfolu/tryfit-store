@@ -1,5 +1,4 @@
 import { useGlobalStateContext } from '../../context/context';
-import { ProductData } from '../../data';
 import { EmptyCartContainer } from '../Cart/style/CartStyle';
 import WishListItem from './Item/WishListItem';
 

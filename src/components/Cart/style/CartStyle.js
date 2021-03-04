@@ -53,6 +53,11 @@ export const CartContainer = styled.div`
 export const CheckoutBox = styled.div`
 	align-self: flex-end;
 
+	@media only screen and (max-width: 37.5em) {
+		align-self: center;
+		margin-top: 1.5rem;
+		width: 100%;
+	}
 	h6 {
 		font-size: 2rem;
 	}
@@ -68,6 +73,12 @@ export const TotalText = styled.div`
 
 	div {
 		margin-right: 2rem;
+	}
+
+	@media only screen and (max-width: 37.5em) {
+		div {
+			margin-right: auto;
+		}
 	}
 
 	p {
